@@ -9,7 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStream
 from peft import PeftModel
 from threading import Thread
 import gradio as gr
-from model_management import load_model_from_saved
+from utils.model_management import load_model_from_saved
 
 def parse_args():
     parser = argparse.ArgumentParser(description="REPL for fine-tuned Phi-3 Mini")

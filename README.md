@@ -16,26 +16,37 @@ This project enables fine-tuning of the Microsoft Phi-3 Mini model using Quantiz
 aiplayground/
 ├── setup.bat                  # Main setup menu
 ├── run_example_pipeline.bat   # Run example fine-tuning pipeline
-├── phi3_repl.py               # Interactive REPL for using the model
 ├── finetune_phi3_qlora.py     # Fine-tuning script
+├── phi3_repl.py               # Interactive REPL for using the model
 ├── requirements.txt           # Python dependencies
-├── setup/
-│   ├── cuda/                  # CUDA and GPU setup scripts
-│   │   ├── fix_cuda_bnb.bat
-│   │   ├── install_cuda.bat
-│   │   ├── install_pytorch.bat
-│   │   └── update_drivers.bat
-│   ├── utils/                 # Utility scripts
-│   │   └── check_system.bat
-│   └── tests/                 # Test scripts
-│       ├── full_environment_test.bat
-│       ├── test_phi3_load.bat
-│       ├── verify_bitsandbytes.bat
-│       ├── verify_cuda.bat
-│       └── verify_pytorch.bat
-└── docs/
-    ├── CUDA_SETUP_GUIDE.md
-    └── rtx4090_optimization_tips.md
+├── data/                      # Dataset directory
+│   └── example_dataset.json   # Example dataset for fine-tuning
+├── docs/                      # Documentation
+│   ├── CUDA_SETUP_GUIDE.md    # CUDA setup guide
+│   └── rtx4090_optimization_tips.md # RTX 4090 optimization tips
+├── model_output/              # Directory for saved models
+├── utils/                     # Utility modules
+│   ├── model_management.py    # Model saving/loading utilities
+│   ├── model_utils.py         # Model utility functions
+│   └── prepare_dataset.py     # Dataset preparation utilities
+└── setup/                     # Setup and configuration scripts
+    ├── cuda/                  # CUDA and GPU setup scripts
+    │   ├── fix_cuda_bnb.bat
+    │   ├── install_cuda.bat
+    │   ├── install_pytorch.bat
+    │   └── update_drivers.bat
+    ├── utils/                 # Utility scripts
+    │   ├── check_system.bat
+    │   └── python/            # Python setup scripts
+    │       └── setup_python.ps1
+    └── tests/                 # Test scripts
+        ├── full_environment_test.bat
+        ├── test_phi3_load.bat
+        ├── test_qlora_setup.py
+        ├── verify_bitsandbytes.bat
+        ├── verify_cuda.bat
+        ├── verify_qlora_peft.py
+        └── verify_pytorch.bat
 ```
 
 ## Environment Setup
