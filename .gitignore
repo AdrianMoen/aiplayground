@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+
+# PyTorch/Model
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.model
+*.safetensors
+*.gguf
+
+# Fine-tuned model directory
+phi3-mini-finetuned/
+*/phi3-mini-finetuned/
+**/phi3-mini-finetuned/
+
+# Logs and outputs
+wandb/
+runs/
+logs/
+outputs/
+*.log
+
+# Editor and OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
