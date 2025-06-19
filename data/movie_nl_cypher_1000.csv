@@ -1,0 +1,1001 @@
+utterance,cypher
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1985.,MATCH (p:Person) WHERE p.born = 1985 RETURN p.name AS person;
+Who directed the movie 'The Dark Knight'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Dark Knight'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Leonardo DiCaprio.,MATCH (p1:Person {name: 'Leonardo DiCaprio'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 1975.,MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;
+Who directed the movie 'Star Wars: A New Hope'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Scarlett Johansson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Scarlett Johansson'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Princess Mononoke'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Princess Mononoke'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with George Clooney.,MATCH (p1:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List all movies released in 2018.,MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;
+Which actors acted in 'Blade Runner 2049'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Blade Runner 2049'}) RETURN p.name AS actor;
+How many movies has Ryan Gosling acted in?,MATCH (:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'The Lord of the Rings: The Fellowship of the Ring'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Lord of the Rings: The Fellowship of the Ring'}) RETURN p.name AS actor;
+How many movies has Emma Stone acted in?,MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+How many movies has Pedro Pascal acted in?,MATCH (:Person {name: 'Pedro Pascal'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 2021.,MATCH (p:Person) WHERE p.born = 2021 RETURN p.name AS person;
+List all movies released in 2016.,MATCH (m:Movie) WHERE m.released = 2016 RETURN m.title AS title;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+List actors who have acted with Morgan Freeman.,MATCH (p1:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2023.,MATCH (p:Person) WHERE p.born = 2023 RETURN p.name AS person;
+Who follows Meryl Streep?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Meryl Streep'}) RETURN follower.name AS follower;
+Who follows Anne Hathaway?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Anne Hathaway'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Parasite'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Parasite'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Interstellar'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Interstellar'}) RETURN d.name AS director;
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Which actors acted in 'Birdman'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Birdman'}) RETURN p.name AS actor;
+How many movies has Matt Damon acted in?,MATCH (:Person {name: 'Matt Damon'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 2014.,MATCH (p:Person) WHERE p.born = 2014 RETURN p.name AS person;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Coco'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Coco'}) RETURN p.name AS actor;
+Who directed the movie 'Titanic'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Titanic'}) RETURN d.name AS director;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Find all people born in 2010.,MATCH (p:Person) WHERE p.born = 2010 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Se7en'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Se7en'}) RETURN d.name AS director;
+List all movies released in 1984.,MATCH (m:Movie) WHERE m.released = 1984 RETURN m.title AS title;
+List all movies released in 2021.,MATCH (m:Movie) WHERE m.released = 2021 RETURN m.title AS title;
+How many movies has Viola Davis acted in?,MATCH (:Person {name: 'Viola Davis'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1974.,MATCH (p:Person) WHERE p.born = 1974 RETURN p.name AS person;
+Who directed the movie 'Toy Story'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;
+How many movies has Matt Damon acted in?,MATCH (:Person {name: 'Matt Damon'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Find all people born in 1978.,MATCH (p:Person) WHERE p.born = 1978 RETURN p.name AS person;
+Who directed the movie 'Finding Nemo'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Finding Nemo'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2017.,MATCH (p:Person) WHERE p.born = 2017 RETURN p.name AS person;
+Who follows Margot Robbie?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Margot Robbie'}) RETURN follower.name AS follower;
+Who follows Viola Davis?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Viola Davis'}) RETURN follower.name AS follower;
+How many movies has George Clooney acted in?,MATCH (:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'The Grand Budapest Hotel'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN p.name AS actor;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+List all movies released in 2025.,MATCH (m:Movie) WHERE m.released = 2025 RETURN m.title AS title;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Blade Runner 2049'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Blade Runner 2049'}) RETURN p.name AS actor;
+Who follows Keanu Reeves?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Keanu Reeves'}) RETURN follower.name AS follower;
+List actors who have acted with Cate Blanchett.,MATCH (p1:Person {name: 'Cate Blanchett'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Gal Gadot?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Gal Gadot'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2005.,MATCH (p:Person) WHERE p.born = 2005 RETURN p.name AS person;
+List all movies released in 2013.,MATCH (m:Movie) WHERE m.released = 2013 RETURN m.title AS title;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2019.,MATCH (p:Person) WHERE p.born = 2019 RETURN p.name AS person;
+How many movies has Brad Pitt acted in?,MATCH (:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1997.,MATCH (p:Person) WHERE p.born = 1997 RETURN p.name AS person;
+Which actors acted in 'Gravity'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gravity'}) RETURN p.name AS actor;
+List all movies released in 2016.,MATCH (m:Movie) WHERE m.released = 2016 RETURN m.title AS title;
+Find all people born in 2002.,MATCH (p:Person) WHERE p.born = 2002 RETURN p.name AS person;
+Which actors acted in 'The Grand Budapest Hotel'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Find all people born in 2023.,MATCH (p:Person) WHERE p.born = 2023 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Anne Hathaway?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Anne Hathaway'}) RETURN follower.name AS follower;
+Which actors acted in 'Birdman'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Birdman'}) RETURN p.name AS actor;
+Which actors acted in 'Coco'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Coco'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2008.,MATCH (m:Movie) WHERE m.released = 2008 RETURN m.title AS title;
+How many movies has Hugh Jackman acted in?,MATCH (:Person {name: 'Hugh Jackman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List all movies released in 1977.,MATCH (m:Movie) WHERE m.released = 1977 RETURN m.title AS title;
+How many movies has Harrison Ford acted in?,MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Pulp Fiction'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Pulp Fiction'}) RETURN d.name AS director;
+Who directed the movie 'Toy Story'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'The Dark Knight'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Dark Knight'}) RETURN p.name AS actor;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Find all people born in 2003.,MATCH (p:Person) WHERE p.born = 2003 RETURN p.name AS person;
+Who follows Margot Robbie?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Margot Robbie'}) RETURN follower.name AS follower;
+Who directed the movie 'Coco'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Coco'}) RETURN d.name AS director;
+Who directed the movie 'Mad Max: Fury Road'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN d.name AS director;
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Michael B. Jordan acted in?,MATCH (:Person {name: 'Michael B. Jordan'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Star Wars: A New Hope'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+List all movies released in 2007.,MATCH (m:Movie) WHERE m.released = 2007 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Up'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Up'}) RETURN d.name AS director;
+Who directed the movie 'The Matrix'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Matrix'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1984.,MATCH (m:Movie) WHERE m.released = 1984 RETURN m.title AS title;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+How many movies has Keanu Reeves acted in?,MATCH (:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Whiplash'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Whiplash'}) RETURN d.name AS director;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Toy Story'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Toy Story'}) RETURN p.name AS actor;
+Who follows Ryan Reynolds?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ryan Reynolds'}) RETURN follower.name AS follower;
+Who directed the movie 'Gone Girl'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gone Girl'}) RETURN d.name AS director;
+List actors who have acted with Anne Hathaway.,MATCH (p1:Person {name: 'Anne Hathaway'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Denzel Washington.,MATCH (p1:Person {name: 'Denzel Washington'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Joaquin Phoenix.,MATCH (p1:Person {name: 'Joaquin Phoenix'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Paul Rudd.,MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Emma Stone acted in?,MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Avatar'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Avatar'}) RETURN d.name AS director;
+Who directed the movie 'Coco'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Coco'}) RETURN d.name AS director;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+List actors who have acted with Samuel L. Jackson.,MATCH (p1:Person {name: 'Samuel L. Jackson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+Who directed the movie 'The Shawshank Redemption'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN d.name AS director;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+List all movies released in 2011.,MATCH (m:Movie) WHERE m.released = 2011 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 1975.,MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;
+Who directed the movie 'Titanic'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Titanic'}) RETURN d.name AS director;
+List actors who have acted with Hugh Jackman.,MATCH (p1:Person {name: 'Hugh Jackman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+List actors who have acted with Natalie Portman.,MATCH (p1:Person {name: 'Natalie Portman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'The Revenant'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Revenant'}) RETURN p.name AS actor;
+List all movies released in 1994.,MATCH (m:Movie) WHERE m.released = 1994 RETURN m.title AS title;
+Find all people born in 2020.,MATCH (p:Person) WHERE p.born = 2020 RETURN p.name AS person;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List actors who have acted with Oscar Isaac.,MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Parasite'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Parasite'}) RETURN d.name AS director;
+Who directed the movie 'Pulp Fiction'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Pulp Fiction'}) RETURN d.name AS director;
+Who follows Chadwick Boseman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Chadwick Boseman'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2017.,MATCH (m:Movie) WHERE m.released = 2017 RETURN m.title AS title;
+How many movies has Natalie Portman acted in?,MATCH (:Person {name: 'Natalie Portman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List all movies released in 2007.,MATCH (m:Movie) WHERE m.released = 2007 RETURN m.title AS title;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+List all movies released in 2002.,MATCH (m:Movie) WHERE m.released = 2002 RETURN m.title AS title;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Who follows Keanu Reeves?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Keanu Reeves'}) RETURN follower.name AS follower;
+Who directed the movie 'Django Unchained'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Up'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Up'}) RETURN d.name AS director;
+Who follows Leonardo DiCaprio?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Leonardo DiCaprio'}) RETURN follower.name AS follower;
+Who follows Morgan Freeman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Morgan Freeman'}) RETURN follower.name AS follower;
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Florence Pugh?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Florence Pugh'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Jennifer Lawrence acted in?,MATCH (:Person {name: 'Jennifer Lawrence'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'The Lion King'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Lion King'}) RETURN d.name AS director;
+How many movies has Sandra Bullock acted in?,MATCH (:Person {name: 'Sandra Bullock'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1995.,MATCH (p:Person) WHERE p.born = 1995 RETURN p.name AS person;
+Which actors acted in 'The Lion King'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Lion King'}) RETURN p.name AS actor;
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+How many movies has Mahershala Ali acted in?,MATCH (:Person {name: 'Mahershala Ali'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'The Grand Budapest Hotel'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN d.name AS director;
+Find all people born in 1978.,MATCH (p:Person) WHERE p.born = 1978 RETURN p.name AS person;
+How many movies has Keanu Reeves acted in?,MATCH (:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Birdman'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Birdman'}) RETURN d.name AS director;
+Find all people born in 1980.,MATCH (p:Person) WHERE p.born = 1980 RETURN p.name AS person;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Who follows Tessa Thompson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2012.,MATCH (m:Movie) WHERE m.released = 2012 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2012.,MATCH (p:Person) WHERE p.born = 2012 RETURN p.name AS person;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1977.,MATCH (p:Person) WHERE p.born = 1977 RETURN p.name AS person;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Whiplash'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;
+Find all people born in 2008.,MATCH (p:Person) WHERE p.born = 2008 RETURN p.name AS person;
+Who directed the movie 'Memento'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Memento'}) RETURN d.name AS director;
+Who directed the movie 'Spirited Away'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;
+Find all people born in 2002.,MATCH (p:Person) WHERE p.born = 2002 RETURN p.name AS person;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List all movies released in 1975.,MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 1970.,MATCH (m:Movie) WHERE m.released = 1970 RETURN m.title AS title;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Spirited Away'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Spirited Away'}) RETURN p.name AS actor;
+Find all people born in 1980.,MATCH (p:Person) WHERE p.born = 1980 RETURN p.name AS person;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 1977.,MATCH (m:Movie) WHERE m.released = 1977 RETURN m.title AS title;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Coco'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Coco'}) RETURN p.name AS actor;
+List all movies released in 2023.,MATCH (m:Movie) WHERE m.released = 2023 RETURN m.title AS title;
+How many movies has Ana de Armas acted in?,MATCH (:Person {name: 'Ana de Armas'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Blade Runner 2049'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Blade Runner 2049'}) RETURN p.name AS actor;
+Which actors acted in 'Inception'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Inception'}) RETURN p.name AS actor;
+Find all people born in 1993.,MATCH (p:Person) WHERE p.born = 1993 RETURN p.name AS person;
+List all movies released in 1992.,MATCH (m:Movie) WHERE m.released = 1992 RETURN m.title AS title;
+Who directed the movie 'Saving Private Ryan'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Saving Private Ryan'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Daniel Kaluuya.,MATCH (p1:Person {name: 'Daniel Kaluuya'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Saving Private Ryan'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Saving Private Ryan'}) RETURN p.name AS actor;
+Which actors acted in 'Jurassic Park'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Jurassic Park'}) RETURN p.name AS actor;
+List actors who have acted with Scarlett Johansson.,MATCH (p1:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Memento'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Memento'}) RETURN p.name AS actor;
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'Whiplash'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Whiplash'}) RETURN d.name AS director;
+Which actors acted in 'Interstellar'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Interstellar'}) RETURN p.name AS actor;
+List actors who have acted with Leonardo DiCaprio.,MATCH (p1:Person {name: 'Leonardo DiCaprio'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Gravity'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gravity'}) RETURN d.name AS director;
+How many movies has Harrison Ford acted in?,MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Star Wars: A New Hope'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN d.name AS director;
+List all movies released in 2012.,MATCH (m:Movie) WHERE m.released = 2012 RETURN m.title AS title;
+Who directed the movie 'Django Unchained'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;
+How many movies has Ryan Gosling acted in?,MATCH (:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1992.,MATCH (p:Person) WHERE p.born = 1992 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with John Boyega.,MATCH (p1:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Scarlett Johansson acted in?,MATCH (:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Up'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Up'}) RETURN p.name AS actor;
+Find all people born in 1972.,MATCH (p:Person) WHERE p.born = 1972 RETURN p.name AS person;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Denzel Washington.,MATCH (p1:Person {name: 'Denzel Washington'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Margot Robbie acted in?,MATCH (:Person {name: 'Margot Robbie'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Mark Ruffalo?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mark Ruffalo'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Who follows Anne Hathaway?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Anne Hathaway'}) RETURN follower.name AS follower;
+Find all people born in 1972.,MATCH (p:Person) WHERE p.born = 1972 RETURN p.name AS person;
+List actors who have acted with Tom Hanks.,MATCH (p1:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Birdman'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Birdman'}) RETURN d.name AS director;
+List actors who have acted with Keanu Reeves.,MATCH (p1:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Daniel Kaluuya acted in?,MATCH (:Person {name: 'Daniel Kaluuya'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Emily Blunt acted in?,MATCH (:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Find all people born in 2002.,MATCH (p:Person) WHERE p.born = 2002 RETURN p.name AS person;
+Find all people born in 2012.,MATCH (p:Person) WHERE p.born = 2012 RETURN p.name AS person;
+List actors who have acted with Priyanka Chopra.,MATCH (p1:Person {name: 'Priyanka Chopra'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Oscar Isaac.,MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 2005.,MATCH (p:Person) WHERE p.born = 2005 RETURN p.name AS person;
+Which actors acted in 'Avatar'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Avatar'}) RETURN p.name AS actor;
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with John Boyega.,MATCH (p1:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+"Which actors acted in 'Monsters, Inc.'?","MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Monsters, Inc.'}) RETURN p.name AS actor;"
+Who follows Harrison Ford?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Harrison Ford'}) RETURN follower.name AS follower;
+List actors who have acted with Zendaya.,MATCH (p1:Person {name: 'Zendaya'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 1989.,MATCH (m:Movie) WHERE m.released = 1989 RETURN m.title AS title;
+Find all people born in 1983.,MATCH (p:Person) WHERE p.born = 1983 RETURN p.name AS person;
+List actors who have acted with Ana de Armas.,MATCH (p1:Person {name: 'Ana de Armas'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Tessa Thompson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;
+How many movies has Gal Gadot acted in?,MATCH (:Person {name: 'Gal Gadot'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Who directed the movie 'The Grand Budapest Hotel'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN d.name AS director;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Will Smith?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Will Smith'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Mad Max: Fury Road'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN d.name AS director;
+Who directed the movie 'Avatar'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Avatar'}) RETURN d.name AS director;
+Which actors acted in 'The Godfather'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Godfather'}) RETURN p.name AS actor;
+List all movies released in 1985.,MATCH (m:Movie) WHERE m.released = 1985 RETURN m.title AS title;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Who follows Anne Hathaway?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Anne Hathaway'}) RETURN follower.name AS follower;
+List actors who have acted with Hugh Jackman.,MATCH (p1:Person {name: 'Hugh Jackman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Sandra Bullock.,MATCH (p1:Person {name: 'Sandra Bullock'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Princess Mononoke'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Princess Mononoke'}) RETURN p.name AS actor;
+List all movies released in 2018.,MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with George Clooney.,MATCH (p1:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Inside Out'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Inside Out'}) RETURN p.name AS actor;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Forrest Gump'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Find all people born in 2018.,MATCH (p:Person) WHERE p.born = 2018 RETURN p.name AS person;
+Who directed the movie 'Spirited Away'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;
+Find all people born in 2019.,MATCH (p:Person) WHERE p.born = 2019 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Find all people born in 1998.,MATCH (p:Person) WHERE p.born = 1998 RETURN p.name AS person;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1985.,MATCH (p:Person) WHERE p.born = 1985 RETURN p.name AS person;
+Find all people born in 1991.,MATCH (p:Person) WHERE p.born = 1991 RETURN p.name AS person;
+How many movies has Timothee Chalamet acted in?,MATCH (:Person {name: 'Timothee Chalamet'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Star Wars: A New Hope'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN p.name AS actor;
+List actors who have acted with Oscar Isaac.,MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'The Lord of the Rings: The Fellowship of the Ring'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Lord of the Rings: The Fellowship of the Ring'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Will Smith.,MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+List all movies released in 1983.,MATCH (m:Movie) WHERE m.released = 1983 RETURN m.title AS title;
+List actors who have acted with Cate Blanchett.,MATCH (p1:Person {name: 'Cate Blanchett'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Oscar Isaac?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Oscar Isaac'}) RETURN follower.name AS follower;
+List all movies released in 2024.,MATCH (m:Movie) WHERE m.released = 2024 RETURN m.title AS title;
+Who follows Cate Blanchett?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Cate Blanchett'}) RETURN follower.name AS follower;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+How many movies has Harrison Ford acted in?,MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Joaquin Phoenix.,MATCH (p1:Person {name: 'Joaquin Phoenix'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows George Clooney?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'George Clooney'}) RETURN follower.name AS follower;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Find all people born in 1997.,MATCH (p:Person) WHERE p.born = 1997 RETURN p.name AS person;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+List actors who have acted with Will Smith.,MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Paul Rudd.,MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Gravity'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gravity'}) RETURN p.name AS actor;
+"Which actors acted in 'Monsters, Inc.'?","MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Monsters, Inc.'}) RETURN p.name AS actor;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 1995.,MATCH (m:Movie) WHERE m.released = 1995 RETURN m.title AS title;
+Who follows Florence Pugh?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Florence Pugh'}) RETURN follower.name AS follower;
+List all movies released in 1975.,MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;
+List actors who have acted with Angelina Jolie.,MATCH (p1:Person {name: 'Angelina Jolie'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+List all movies released in 1986.,MATCH (m:Movie) WHERE m.released = 1986 RETURN m.title AS title;
+List actors who have acted with Priyanka Chopra.,MATCH (p1:Person {name: 'Priyanka Chopra'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'Gravity'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gravity'}) RETURN d.name AS director;
+How many movies has Will Smith acted in?,MATCH (:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Jennifer Lawrence.,MATCH (p1:Person {name: 'Jennifer Lawrence'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+List all movies released in 2017.,MATCH (m:Movie) WHERE m.released = 2017 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 1992.,MATCH (m:Movie) WHERE m.released = 1992 RETURN m.title AS title;
+Who directed the movie 'Princess Mononoke'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Princess Mononoke'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+List all movies released in 2018.,MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;
+List all movies released in 1985.,MATCH (m:Movie) WHERE m.released = 1985 RETURN m.title AS title;
+Who directed the movie 'The Godfather'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Godfather'}) RETURN d.name AS director;
+Who follows Robert Downey Jr.?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Robert Downey Jr.'}) RETURN follower.name AS follower;
+Who directed the movie 'The Dark Knight'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Dark Knight'}) RETURN d.name AS director;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Who follows Matt Damon?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Matt Damon'}) RETURN follower.name AS follower;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+How many movies has Chris Evans acted in?,MATCH (:Person {name: 'Chris Evans'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Pedro Pascal?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Pedro Pascal'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Mad Max: Fury Road'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1989.,MATCH (m:Movie) WHERE m.released = 1989 RETURN m.title AS title;
+Who follows John Boyega?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'John Boyega'}) RETURN follower.name AS follower;
+List actors who have acted with Viola Davis.,MATCH (p1:Person {name: 'Viola Davis'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'The Shawshank Redemption'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN d.name AS director;
+Who follows Oscar Isaac?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Oscar Isaac'}) RETURN follower.name AS follower;
+Who directed the movie 'Interstellar'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Interstellar'}) RETURN d.name AS director;
+Find all people born in 2024.,MATCH (p:Person) WHERE p.born = 2024 RETURN p.name AS person;
+Who follows Brad Pitt?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Brad Pitt'}) RETURN follower.name AS follower;
+Who follows Leonardo DiCaprio?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Leonardo DiCaprio'}) RETURN follower.name AS follower;
+How many movies has Timothee Chalamet acted in?,MATCH (:Person {name: 'Timothee Chalamet'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Keanu Reeves acted in?,MATCH (:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Tom Hanks acted in?,MATCH (:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Hugh Jackman.,MATCH (p1:Person {name: 'Hugh Jackman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+How many movies has Rami Malek acted in?,MATCH (:Person {name: 'Rami Malek'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+List actors who have acted with Samuel L. Jackson.,MATCH (p1:Person {name: 'Samuel L. Jackson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2009.,MATCH (p:Person) WHERE p.born = 2009 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+List actors who have acted with Paul Rudd.,MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Ryan Gosling?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ryan Gosling'}) RETURN follower.name AS follower;
+How many movies has Sandra Bullock acted in?,MATCH (:Person {name: 'Sandra Bullock'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+How many movies has Scarlett Johansson acted in?,MATCH (:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Which actors acted in 'Her'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Her'}) RETURN p.name AS actor;
+Who directed the movie 'The Social Network'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Social Network'}) RETURN d.name AS director;
+Find all people born in 1991.,MATCH (p:Person) WHERE p.born = 1991 RETURN p.name AS person;
+Find all people born in 2008.,MATCH (p:Person) WHERE p.born = 2008 RETURN p.name AS person;
+Find all people born in 2005.,MATCH (p:Person) WHERE p.born = 2005 RETURN p.name AS person;
+List all movies released in 2003.,MATCH (m:Movie) WHERE m.released = 2003 RETURN m.title AS title;
+Who directed the movie 'Fight Club'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Fight Club'}) RETURN d.name AS director;
+Who directed the movie 'The Wolf of Wall Street'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Wolf of Wall Street'}) RETURN d.name AS director;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Django Unchained'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;
+Who directed the movie 'Mad Max: Fury Road'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN d.name AS director;
+Who follows Meryl Streep?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Meryl Streep'}) RETURN follower.name AS follower;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+List actors who have acted with Chadwick Boseman.,MATCH (p1:Person {name: 'Chadwick Boseman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Denzel Washington acted in?,MATCH (:Person {name: 'Denzel Washington'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Find all people born in 1986.,MATCH (p:Person) WHERE p.born = 1986 RETURN p.name AS person;
+Who directed the movie 'Forrest Gump'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;
+Who directed the movie 'Se7en'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Se7en'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Avatar'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Avatar'}) RETURN p.name AS actor;
+Who directed the movie 'Gone Girl'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gone Girl'}) RETURN d.name AS director;
+Find all people born in 2016.,MATCH (p:Person) WHERE p.born = 2016 RETURN p.name AS person;
+Who follows Mahershala Ali?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mahershala Ali'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Christian Bale?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Christian Bale'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Parasite'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Parasite'}) RETURN d.name AS director;
+Who directed the movie 'Birdman'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Birdman'}) RETURN d.name AS director;
+Which actors acted in 'Mad Max: Fury Road'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN p.name AS actor;
+List all movies released in 2015.,MATCH (m:Movie) WHERE m.released = 2015 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Whiplash'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;
+List all movies released in 1973.,MATCH (m:Movie) WHERE m.released = 1973 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2014.,MATCH (p:Person) WHERE p.born = 2014 RETURN p.name AS person;
+Which actors acted in 'Spirited Away'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Spirited Away'}) RETURN p.name AS actor;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+List all movies released in 2006.,MATCH (m:Movie) WHERE m.released = 2006 RETURN m.title AS title;
+Find all people born in 2000.,MATCH (p:Person) WHERE p.born = 2000 RETURN p.name AS person;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+How many movies has Samuel L. Jackson acted in?,MATCH (:Person {name: 'Samuel L. Jackson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List all movies released in 1986.,MATCH (m:Movie) WHERE m.released = 1986 RETURN m.title AS title;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Who follows Rami Malek?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Rami Malek'}) RETURN follower.name AS follower;
+List all movies released in 1979.,MATCH (m:Movie) WHERE m.released = 1979 RETURN m.title AS title;
+Which actors acted in 'Toy Story'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Toy Story'}) RETURN p.name AS actor;
+Find all people born in 1975.,MATCH (p:Person) WHERE p.born = 1975 RETURN p.name AS person;
+Who directed the movie 'Forrest Gump'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Pedro Pascal.,MATCH (p1:Person {name: 'Pedro Pascal'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Daniel Kaluuya?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Daniel Kaluuya'}) RETURN follower.name AS follower;
+Who directed the movie 'Inside Out'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Inside Out'}) RETURN d.name AS director;
+List actors who have acted with Michael B. Jordan.,MATCH (p1:Person {name: 'Michael B. Jordan'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Who follows Margot Robbie?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Margot Robbie'}) RETURN follower.name AS follower;
+Find all people born in 2006.,MATCH (p:Person) WHERE p.born = 2006 RETURN p.name AS person;
+Who follows Natalie Portman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Natalie Portman'}) RETURN follower.name AS follower;
+Who follows Chadwick Boseman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Chadwick Boseman'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Spirited Away'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;
+Who directed the movie 'La La Land'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'La La Land'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Jurassic Park'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Jurassic Park'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1996.,MATCH (m:Movie) WHERE m.released = 1996 RETURN m.title AS title;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Find all people born in 1972.,MATCH (p:Person) WHERE p.born = 1972 RETURN p.name AS person;
+Who directed the movie 'Parasite'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Parasite'}) RETURN d.name AS director;
+Find all people born in 2014.,MATCH (p:Person) WHERE p.born = 2014 RETURN p.name AS person;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Who directed the movie 'La La Land'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'La La Land'}) RETURN d.name AS director;
+Who follows Emily Blunt?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Emily Blunt'}) RETURN follower.name AS follower;
+Who directed the movie 'Blade Runner 2049'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Blade Runner 2049'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Who directed the movie 'Princess Mononoke'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Princess Mononoke'}) RETURN d.name AS director;
+Which actors acted in 'Whiplash'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+List all movies released in 1980.,MATCH (m:Movie) WHERE m.released = 1980 RETURN m.title AS title;
+Find all people born in 2008.,MATCH (p:Person) WHERE p.born = 2008 RETURN p.name AS person;
+Who follows Christian Bale?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Christian Bale'}) RETURN follower.name AS follower;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1997.,MATCH (m:Movie) WHERE m.released = 1997 RETURN m.title AS title;
+How many movies has Pedro Pascal acted in?,MATCH (:Person {name: 'Pedro Pascal'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1971.,MATCH (p:Person) WHERE p.born = 1971 RETURN p.name AS person;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Who follows Ana de Armas?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ana de Armas'}) RETURN follower.name AS follower;
+List all movies released in 2018.,MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;
+Find all people born in 2006.,MATCH (p:Person) WHERE p.born = 2006 RETURN p.name AS person;
+List all movies released in 2018.,MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;
+Which actors acted in 'Gone Girl'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gone Girl'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Which actors acted in 'Up'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Up'}) RETURN p.name AS actor;
+List actors who have acted with Rami Malek.,MATCH (p1:Person {name: 'Rami Malek'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+List actors who have acted with Will Smith.,MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Emily Blunt acted in?,MATCH (:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Memento'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Memento'}) RETURN p.name AS actor;
+List actors who have acted with Oscar Isaac.,MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List actors who have acted with Mahershala Ali.,MATCH (p1:Person {name: 'Mahershala Ali'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 1999.,MATCH (m:Movie) WHERE m.released = 1999 RETURN m.title AS title;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1990.,MATCH (p:Person) WHERE p.born = 1990 RETURN p.name AS person;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Mark Ruffalo.,MATCH (p1:Person {name: 'Mark Ruffalo'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 2012.,MATCH (m:Movie) WHERE m.released = 2012 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+List all movies released in 1982.,MATCH (m:Movie) WHERE m.released = 1982 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Daniel Kaluuya acted in?,MATCH (:Person {name: 'Daniel Kaluuya'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+List all movies released in 1983.,MATCH (m:Movie) WHERE m.released = 1983 RETURN m.title AS title;
+Find all people born in 2005.,MATCH (p:Person) WHERE p.born = 2005 RETURN p.name AS person;
+Which actors acted in 'Parasite'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Parasite'}) RETURN p.name AS actor;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Who follows Sandra Bullock?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Sandra Bullock'}) RETURN follower.name AS follower;
+Which actors acted in 'Mad Max: Fury Road'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2005.,MATCH (m:Movie) WHERE m.released = 2005 RETURN m.title AS title;
+List actors who have acted with Morgan Freeman.,MATCH (p1:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'Forrest Gump'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which actors acted in 'Her'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Her'}) RETURN p.name AS actor;
+Find all people born in 2002.,MATCH (p:Person) WHERE p.born = 2002 RETURN p.name AS person;
+Find all people born in 1996.,MATCH (p:Person) WHERE p.born = 1996 RETURN p.name AS person;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Gravity'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gravity'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'The Revenant'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Revenant'}) RETURN p.name AS actor;
+Who directed the movie 'WALL·E'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'WALL·E'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Find all people born in 2019.,MATCH (p:Person) WHERE p.born = 2019 RETURN p.name AS person;
+List actors who have acted with Will Smith.,MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2022.,MATCH (p:Person) WHERE p.born = 2022 RETURN p.name AS person;
+List all movies released in 1988.,MATCH (m:Movie) WHERE m.released = 1988 RETURN m.title AS title;
+Find all people born in 2023.,MATCH (p:Person) WHERE p.born = 2023 RETURN p.name AS person;
+Who follows Ana de Armas?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ana de Armas'}) RETURN follower.name AS follower;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+How many movies has Will Smith acted in?,MATCH (:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Gal Gadot.,MATCH (p1:Person {name: 'Gal Gadot'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Anne Hathaway acted in?,MATCH (:Person {name: 'Anne Hathaway'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Toy Story'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;
+List actors who have acted with George Clooney.,MATCH (p1:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Leonardo DiCaprio.,MATCH (p1:Person {name: 'Leonardo DiCaprio'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Chadwick Boseman acted in?,MATCH (:Person {name: 'Chadwick Boseman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+List actors who have acted with Emily Blunt.,MATCH (p1:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Her'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Her'}) RETURN p.name AS actor;
+List all movies released in 1978.,MATCH (m:Movie) WHERE m.released = 1978 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Will Smith?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Will Smith'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Which actors acted in 'The Wolf of Wall Street'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Wolf of Wall Street'}) RETURN p.name AS actor;
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+How many movies has Daniel Kaluuya acted in?,MATCH (:Person {name: 'Daniel Kaluuya'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Tessa Thompson.,MATCH (p1:Person {name: 'Tessa Thompson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+How many movies has John Boyega acted in?,MATCH (:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Priyanka Chopra.,MATCH (p1:Person {name: 'Priyanka Chopra'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Who follows Keanu Reeves?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Keanu Reeves'}) RETURN follower.name AS follower;
+Who directed the movie 'Spirited Away'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;
+Find all people born in 1984.,MATCH (p:Person) WHERE p.born = 1984 RETURN p.name AS person;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Mad Max: Fury Road'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN p.name AS actor;
+List all movies released in 1972.,MATCH (m:Movie) WHERE m.released = 1972 RETURN m.title AS title;
+How many movies has Natalie Portman acted in?,MATCH (:Person {name: 'Natalie Portman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1992.,MATCH (p:Person) WHERE p.born = 1992 RETURN p.name AS person;
+How many movies has Margot Robbie acted in?,MATCH (:Person {name: 'Margot Robbie'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Saving Private Ryan'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Saving Private Ryan'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Florence Pugh.,MATCH (p1:Person {name: 'Florence Pugh'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Titanic'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Titanic'}) RETURN p.name AS actor;
+Which actors acted in 'Fight Club'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Fight Club'}) RETURN p.name AS actor;
+Who follows Cate Blanchett?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Cate Blanchett'}) RETURN follower.name AS follower;
+Who follows John Boyega?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'John Boyega'}) RETURN follower.name AS follower;
+Who directed the movie 'Her'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Her'}) RETURN d.name AS director;
+Who follows Robert Downey Jr.?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Robert Downey Jr.'}) RETURN follower.name AS follower;
+Who directed the movie 'Gravity'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gravity'}) RETURN d.name AS director;
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+Find all people born in 2012.,MATCH (p:Person) WHERE p.born = 2012 RETURN p.name AS person;
+List all movies released in 2021.,MATCH (m:Movie) WHERE m.released = 2021 RETURN m.title AS title;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Who follows Harrison Ford?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Harrison Ford'}) RETURN follower.name AS follower;
+List actors who have acted with Oscar Isaac.,MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+Find all people born in 1982.,MATCH (p:Person) WHERE p.born = 1982 RETURN p.name AS person;
+List actors who have acted with Ryan Reynolds.,MATCH (p1:Person {name: 'Ryan Reynolds'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Florence Pugh.,MATCH (p1:Person {name: 'Florence Pugh'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Florence Pugh acted in?,MATCH (:Person {name: 'Florence Pugh'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 2014.,MATCH (p:Person) WHERE p.born = 2014 RETURN p.name AS person;
+Find all people born in 1971.,MATCH (p:Person) WHERE p.born = 1971 RETURN p.name AS person;
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 2006.,MATCH (m:Movie) WHERE m.released = 2006 RETURN m.title AS title;
+List all movies released in 2008.,MATCH (m:Movie) WHERE m.released = 2008 RETURN m.title AS title;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+Who directed the movie 'WALL·E'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'WALL·E'}) RETURN d.name AS director;
+How many movies has George Clooney acted in?,MATCH (:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+"Who directed the movie 'Monsters, Inc.'?","MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Monsters, Inc.'}) RETURN d.name AS director;"
+Find all people born in 2013.,MATCH (p:Person) WHERE p.born = 2013 RETURN p.name AS person;
+Which actors acted in 'Spirited Away'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Spirited Away'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1989.,MATCH (m:Movie) WHERE m.released = 1989 RETURN m.title AS title;
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Who follows Meryl Streep?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Meryl Streep'}) RETURN follower.name AS follower;
+Which actors acted in 'Fight Club'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Fight Club'}) RETURN p.name AS actor;
+Find all people born in 1990.,MATCH (p:Person) WHERE p.born = 1990 RETURN p.name AS person;
+List actors who have acted with Samuel L. Jackson.,MATCH (p1:Person {name: 'Samuel L. Jackson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'The Dark Knight'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Dark Knight'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Brie Larson acted in?,MATCH (:Person {name: 'Brie Larson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2023.,MATCH (p:Person) WHERE p.born = 2023 RETURN p.name AS person;
+Which actors acted in 'La La Land'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'La La Land'}) RETURN p.name AS actor;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+How many movies has Brad Pitt acted in?,MATCH (:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which actors acted in 'Star Wars: A New Hope'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN p.name AS actor;
+List actors who have acted with Zendaya.,MATCH (p1:Person {name: 'Zendaya'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Morgan Freeman acted in?,MATCH (:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Tom Hanks.,MATCH (p1:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 2004.,MATCH (p:Person) WHERE p.born = 2004 RETURN p.name AS person;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+How many movies has John Boyega acted in?,MATCH (:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 2007.,MATCH (p:Person) WHERE p.born = 2007 RETURN p.name AS person;
+List actors who have acted with Rami Malek.,MATCH (p1:Person {name: 'Rami Malek'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Emma Stone acted in?,MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Gone Girl'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gone Girl'}) RETURN d.name AS director;
+List all movies released in 2009.,MATCH (m:Movie) WHERE m.released = 2009 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Daniel Kaluuya acted in?,MATCH (:Person {name: 'Daniel Kaluuya'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Princess Mononoke'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Princess Mononoke'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List actors who have acted with Brad Pitt.,MATCH (p1:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Inception'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Inception'}) RETURN p.name AS actor;
+List all movies released in 1989.,MATCH (m:Movie) WHERE m.released = 1989 RETURN m.title AS title;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'The Revenant'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Revenant'}) RETURN p.name AS actor;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Ana de Armas.,MATCH (p1:Person {name: 'Ana de Armas'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'The Wolf of Wall Street'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Wolf of Wall Street'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Find all people born in 1972.,MATCH (p:Person) WHERE p.born = 1972 RETURN p.name AS person;
+How many movies has Matt Damon acted in?,MATCH (:Person {name: 'Matt Damon'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Birdman'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Birdman'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+How many movies has Timothee Chalamet acted in?,MATCH (:Person {name: 'Timothee Chalamet'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Natalie Portman acted in?,MATCH (:Person {name: 'Natalie Portman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'Forrest Gump'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Who directed the movie 'Princess Mononoke'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Princess Mononoke'}) RETURN d.name AS director;
+Who follows Scarlett Johansson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Scarlett Johansson'}) RETURN follower.name AS follower;
+List all movies released in 2020.,MATCH (m:Movie) WHERE m.released = 2020 RETURN m.title AS title;
+How many movies has Sandra Bullock acted in?,MATCH (:Person {name: 'Sandra Bullock'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Toy Story'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Toy Story'}) RETURN p.name AS actor;
+Who directed the movie 'The Shawshank Redemption'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Up'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Up'}) RETURN d.name AS director;
+Who directed the movie 'Star Wars: A New Hope'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN d.name AS director;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'WALL·E'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'WALL·E'}) RETURN p.name AS actor;
+List all movies released in 1987.,MATCH (m:Movie) WHERE m.released = 1987 RETURN m.title AS title;
+Which actors acted in 'The Dark Knight'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Dark Knight'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 2021.,MATCH (p:Person) WHERE p.born = 2021 RETURN p.name AS person;
+Which actors acted in 'Forrest Gump'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Forrest Gump'}) RETURN p.name AS actor;
+List all movies released in 1978.,MATCH (m:Movie) WHERE m.released = 1978 RETURN m.title AS title;
+List all movies released in 1992.,MATCH (m:Movie) WHERE m.released = 1992 RETURN m.title AS title;
+Who directed the movie 'Up'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Up'}) RETURN d.name AS director;
+How many movies has Scarlett Johansson acted in?,MATCH (:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'La La Land'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'La La Land'}) RETURN p.name AS actor;
+List all movies released in 1978.,MATCH (m:Movie) WHERE m.released = 1978 RETURN m.title AS title;
+List actors who have acted with Brie Larson.,MATCH (p1:Person {name: 'Brie Larson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Emma Stone?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Emma Stone'}) RETURN follower.name AS follower;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Who follows Leonardo DiCaprio?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Leonardo DiCaprio'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+List all movies released in 1973.,MATCH (m:Movie) WHERE m.released = 1973 RETURN m.title AS title;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+List actors who have acted with John Boyega.,MATCH (p1:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Who follows Robert Downey Jr.?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Robert Downey Jr.'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Find all people born in 2009.,MATCH (p:Person) WHERE p.born = 2009 RETURN p.name AS person;
+Who follows Zendaya?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Zendaya'}) RETURN follower.name AS follower;
+How many movies has Cate Blanchett acted in?,MATCH (:Person {name: 'Cate Blanchett'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Brie Larson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Brie Larson'}) RETURN follower.name AS follower;
+Find all people born in 1999.,MATCH (p:Person) WHERE p.born = 1999 RETURN p.name AS person;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Margot Robbie?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Margot Robbie'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Blade Runner 2049'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Blade Runner 2049'}) RETURN d.name AS director;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+List actors who have acted with Will Smith.,MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+List actors who have acted with Paul Rudd.,MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Priyanka Chopra.,MATCH (p1:Person {name: 'Priyanka Chopra'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 1993.,MATCH (p:Person) WHERE p.born = 1993 RETURN p.name AS person;
+Which actors acted in 'Gone Girl'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gone Girl'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Emma Stone.,MATCH (p1:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Angelina Jolie acted in?,MATCH (:Person {name: 'Angelina Jolie'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2007.,MATCH (m:Movie) WHERE m.released = 2007 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Emily Blunt acted in?,MATCH (:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+How many movies has Emily Blunt acted in?,MATCH (:Person {name: 'Emily Blunt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Paul Rudd.,MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 1988.,MATCH (m:Movie) WHERE m.released = 1988 RETURN m.title AS title;
+Who follows Harrison Ford?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Harrison Ford'}) RETURN follower.name AS follower;
+How many movies has Emma Stone acted in?,MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Mark Ruffalo?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mark Ruffalo'}) RETURN follower.name AS follower;
+Who directed the movie 'Gladiator'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gladiator'}) RETURN d.name AS director;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Brad Pitt acted in?,MATCH (:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 2006.,MATCH (p:Person) WHERE p.born = 2006 RETURN p.name AS person;
+Who directed the movie 'Blade Runner 2049'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Blade Runner 2049'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Daniel Kaluuya?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Daniel Kaluuya'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2008.,MATCH (m:Movie) WHERE m.released = 2008 RETURN m.title AS title;
+Find all people born in 1971.,MATCH (p:Person) WHERE p.born = 1971 RETURN p.name AS person;
+Which actors acted in 'Whiplash'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;
+Find all people born in 1991.,MATCH (p:Person) WHERE p.born = 1991 RETURN p.name AS person;
+How many movies has Tom Hanks acted in?,MATCH (:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Gladiator'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gladiator'}) RETURN p.name AS actor;
+Who follows Emily Blunt?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Emily Blunt'}) RETURN follower.name AS follower;
+List actors who have acted with Keanu Reeves.,MATCH (p1:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Which actors acted in 'Spirited Away'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Spirited Away'}) RETURN p.name AS actor;
+List all movies released in 1975.,MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'The Revenant'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Revenant'}) RETURN d.name AS director;
+List actors who have acted with Gal Gadot.,MATCH (p1:Person {name: 'Gal Gadot'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Chris Evans acted in?,MATCH (:Person {name: 'Chris Evans'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Harrison Ford acted in?,MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Pedro Pascal?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Pedro Pascal'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Titanic'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Titanic'}) RETURN p.name AS actor;
+Who follows Natalie Portman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Natalie Portman'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+List actors who have acted with Ryan Gosling.,MATCH (p1:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'The Grand Budapest Hotel'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN d.name AS director;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Brad Pitt.,MATCH (p1:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 2013.,MATCH (p:Person) WHERE p.born = 2013 RETURN p.name AS person;
+Who follows Hugh Jackman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Hugh Jackman'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Find all people born in 1972.,MATCH (p:Person) WHERE p.born = 1972 RETURN p.name AS person;
+Who directed the movie 'Django Unchained'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;
+Who follows Natalie Portman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Natalie Portman'}) RETURN follower.name AS follower;
+List all movies released in 1983.,MATCH (m:Movie) WHERE m.released = 1983 RETURN m.title AS title;
+Find all people born in 1983.,MATCH (p:Person) WHERE p.born = 1983 RETURN p.name AS person;
+Which actors acted in 'La La Land'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'La La Land'}) RETURN p.name AS actor;
+Find all people born in 1990.,MATCH (p:Person) WHERE p.born = 1990 RETURN p.name AS person;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 9 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+Which actors acted in 'The Dark Knight'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Dark Knight'}) RETURN p.name AS actor;
+List actors who have acted with Timothee Chalamet.,MATCH (p1:Person {name: 'Timothee Chalamet'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'The Grand Budapest Hotel'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN d.name AS director;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+How many movies has Keanu Reeves acted in?,MATCH (:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Chadwick Boseman.,MATCH (p1:Person {name: 'Chadwick Boseman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List all movies released in 1997.,MATCH (m:Movie) WHERE m.released = 1997 RETURN m.title AS title;
+List all movies released in 1999.,MATCH (m:Movie) WHERE m.released = 1999 RETURN m.title AS title;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+How many movies has Florence Pugh acted in?,MATCH (:Person {name: 'Florence Pugh'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Florence Pugh.,MATCH (p1:Person {name: 'Florence Pugh'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Daisy Ridley.,MATCH (p1:Person {name: 'Daisy Ridley'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Christian Bale.,MATCH (p1:Person {name: 'Christian Bale'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+List all movies released in 1990.,MATCH (m:Movie) WHERE m.released = 1990 RETURN m.title AS title;
+"Which actors acted in 'Monsters, Inc.'?","MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Monsters, Inc.'}) RETURN p.name AS actor;"
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Ana de Armas.,MATCH (p1:Person {name: 'Ana de Armas'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Brie Larson.,MATCH (p1:Person {name: 'Brie Larson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show me movies whose title contains the word 'star'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'star' RETURN m.title AS title, m.released AS year;"
+Find all people born in 2017.,MATCH (p:Person) WHERE p.born = 2017 RETURN p.name AS person;
+How many movies has George Clooney acted in?,MATCH (:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'The Social Network'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Social Network'}) RETURN d.name AS director;
+How many movies has Paul Rudd acted in?,MATCH (:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Saving Private Ryan'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Saving Private Ryan'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1982.,MATCH (p:Person) WHERE p.born = 1982 RETURN p.name AS person;
+Which actors acted in 'WALL·E'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'WALL·E'}) RETURN p.name AS actor;
+Which actors acted in 'Princess Mononoke'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Princess Mononoke'}) RETURN p.name AS actor;
+Show me movies whose title contains the word 'dark'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Who follows Mahershala Ali?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mahershala Ali'}) RETURN follower.name AS follower;
+Who follows Michael B. Jordan?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Michael B. Jordan'}) RETURN follower.name AS follower;
+Who follows Tessa Thompson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;
+Who follows Priyanka Chopra?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Priyanka Chopra'}) RETURN follower.name AS follower;
+How many movies has Robert Downey Jr. acted in?,MATCH (:Person {name: 'Robert Downey Jr.'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Find all people born in 2020.,MATCH (p:Person) WHERE p.born = 2020 RETURN p.name AS person;
+Find all people born in 2007.,MATCH (p:Person) WHERE p.born = 2007 RETURN p.name AS person;
+List all movies released in 1992.,MATCH (m:Movie) WHERE m.released = 1992 RETURN m.title AS title;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+List all movies released in 1973.,MATCH (m:Movie) WHERE m.released = 1973 RETURN m.title AS title;
+How many movies has Christian Bale acted in?,MATCH (:Person {name: 'Christian Bale'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Who follows Mark Ruffalo?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mark Ruffalo'}) RETURN follower.name AS follower;
+List actors who have acted with Gal Gadot.,MATCH (p1:Person {name: 'Gal Gadot'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Zendaya?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Zendaya'}) RETURN follower.name AS follower;
+List all movies released in 1998.,MATCH (m:Movie) WHERE m.released = 1998 RETURN m.title AS title;
+Who follows Tessa Thompson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;
+Who directed the movie 'Se7en'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Se7en'}) RETURN d.name AS director;
+Who follows Ryan Reynolds?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ryan Reynolds'}) RETURN follower.name AS follower;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Which actors acted in 'Pulp Fiction'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Pulp Fiction'}) RETURN p.name AS actor;
+Which movies feature at least 4 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+How many movies has Daisy Ridley acted in?,MATCH (:Person {name: 'Daisy Ridley'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Inception'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Inception'}) RETURN p.name AS actor;
+Who directed the movie 'Arrival'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Arrival'}) RETURN d.name AS director;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+How many movies has Meryl Streep acted in?,MATCH (:Person {name: 'Meryl Streep'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Find all people born in 1994.,MATCH (p:Person) WHERE p.born = 1994 RETURN p.name AS person;
+List actors who have acted with Regina King.,MATCH (p1:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has John Boyega acted in?,MATCH (:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Natalie Portman?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Natalie Portman'}) RETURN follower.name AS follower;
+How many movies has Keanu Reeves acted in?,MATCH (:Person {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Emma Stone acted in?,MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Christian Bale.,MATCH (p1:Person {name: 'Christian Bale'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 2016.,MATCH (p:Person) WHERE p.born = 2016 RETURN p.name AS person;
+Who follows Robert Downey Jr.?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Robert Downey Jr.'}) RETURN follower.name AS follower;
+How many movies has Morgan Freeman acted in?,MATCH (:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Emily Blunt?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Emily Blunt'}) RETURN follower.name AS follower;
+Which actors acted in 'The Social Network'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Social Network'}) RETURN p.name AS actor;
+Find all people born in 2011.,MATCH (p:Person) WHERE p.born = 2011 RETURN p.name AS person;
+List actors who have acted with Angelina Jolie.,MATCH (p1:Person {name: 'Angelina Jolie'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Daisy Ridley?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Daisy Ridley'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Tessa Thompson.,MATCH (p1:Person {name: 'Tessa Thompson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Angelina Jolie acted in?,MATCH (:Person {name: 'Angelina Jolie'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+List actors who have acted with Mark Ruffalo.,MATCH (p1:Person {name: 'Mark Ruffalo'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Scarlett Johansson acted in?,MATCH (:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+How many movies has Harrison Ford acted in?,MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'The Lord of the Rings: The Fellowship of the Ring'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Lord of the Rings: The Fellowship of the Ring'}) RETURN p.name AS actor;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Who directed the movie 'The Dark Knight'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Dark Knight'}) RETURN d.name AS director;
+Which actors acted in 'The Shawshank Redemption'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Shawshank Redemption'}) RETURN p.name AS actor;
+Find all people born in 2024.,MATCH (p:Person) WHERE p.born = 2024 RETURN p.name AS person;
+Show me movies whose title contains the word 'war'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List all movies released in 2012.,MATCH (m:Movie) WHERE m.released = 2012 RETURN m.title AS title;
+How many movies has Regina King acted in?,MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Angelina Jolie?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Angelina Jolie'}) RETURN follower.name AS follower;
+Who follows Cate Blanchett?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Cate Blanchett'}) RETURN follower.name AS follower;
+Which actors acted in 'Titanic'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Titanic'}) RETURN p.name AS actor;
+"Which actors acted in 'Monsters, Inc.'?","MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Monsters, Inc.'}) RETURN p.name AS actor;"
+Which actors acted in 'Arrival'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Arrival'}) RETURN p.name AS actor;
+List all movies released in 1996.,MATCH (m:Movie) WHERE m.released = 1996 RETURN m.title AS title;
+How many movies has John Boyega acted in?,MATCH (:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who directed the movie 'Arrival'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Arrival'}) RETURN d.name AS director;
+Who follows Christian Bale?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Christian Bale'}) RETURN follower.name AS follower;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who directed the movie 'Mad Max: Fury Road'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN d.name AS director;
+Which movies feature at least 6 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+How many movies has John Boyega acted in?,MATCH (:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Who follows Michael B. Jordan?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Michael B. Jordan'}) RETURN follower.name AS follower;
+Which movies feature at least 7 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+List actors who have acted with Mark Ruffalo.,MATCH (p1:Person {name: 'Mark Ruffalo'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+List actors who have acted with Chris Evans.,MATCH (p1:Person {name: 'Chris Evans'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'WALL·E'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'WALL·E'}) RETURN d.name AS director;
+Which actors acted in 'La La Land'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'La La Land'}) RETURN p.name AS actor;
+List all movies released in 2011.,MATCH (m:Movie) WHERE m.released = 2011 RETURN m.title AS title;
+Which movies feature at least 8 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'king'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'king' RETURN m.title AS title, m.released AS year;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Show me movies whose title contains the word 'night'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+Which actors acted in 'Whiplash'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+List actors who have acted with Morgan Freeman.,MATCH (p1:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who directed the movie 'Arrival'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Arrival'}) RETURN d.name AS director;
+How many movies has Scarlett Johansson acted in?,MATCH (:Person {name: 'Scarlett Johansson'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Natalie Portman.,MATCH (p1:Person {name: 'Natalie Portman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+List actors who have acted with Mark Ruffalo.,MATCH (p1:Person {name: 'Mark Ruffalo'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has Sandra Bullock acted in?,MATCH (:Person {name: 'Sandra Bullock'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List actors who have acted with Morgan Freeman.,MATCH (p1:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+How many movies has George Clooney acted in?,MATCH (:Person {name: 'George Clooney'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+List all movies released in 1990.,MATCH (m:Movie) WHERE m.released = 1990 RETURN m.title AS title;
+Show me movies whose title contains the word 'story'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'story' RETURN m.title AS title, m.released AS year;"
+How many movies has Robert Downey Jr. acted in?,MATCH (:Person {name: 'Robert Downey Jr.'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;
+Which actors acted in 'Inception'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Inception'}) RETURN p.name AS actor;
+Find all people born in 2023.,MATCH (p:Person) WHERE p.born = 2023 RETURN p.name AS person;
+Which movies feature at least 5 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 5 RETURN m.title AS title, actorCount;"
+Which movies feature at least 10 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+Who follows Tom Hanks?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tom Hanks'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Find all people born in 1983.,MATCH (p:Person) WHERE p.born = 1983 RETURN p.name AS person;
+Which actors acted in 'Finding Nemo'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Finding Nemo'}) RETURN p.name AS actor;
+Who follows Brie Larson?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Brie Larson'}) RETURN follower.name AS follower;
+List actors who have acted with Brad Pitt.,MATCH (p1:Person {name: 'Brad Pitt'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Find all people born in 1985.,MATCH (p:Person) WHERE p.born = 1985 RETURN p.name AS person;
+Find all people born in 1977.,MATCH (p:Person) WHERE p.born = 1977 RETURN p.name AS person;
+List all movies released in 1985.,MATCH (m:Movie) WHERE m.released = 1985 RETURN m.title AS title;
+List actors who have acted with Rami Malek.,MATCH (p1:Person {name: 'Rami Malek'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Gal Gadot?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Gal Gadot'}) RETURN follower.name AS follower;
+Show me movies whose title contains the word 'love'.,"MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+Which movies feature at least 3 different actors?,"MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+Show people who both directed and acted in the same movie.,"MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+Who follows Sandra Bullock?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Sandra Bullock'}) RETURN follower.name AS follower;
+Which actors acted in 'Parasite'?,MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Parasite'}) RETURN p.name AS actor;
+List actors who have acted with Tom Hanks.,MATCH (p1:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;
+Who follows Denzel Washington?,MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Denzel Washington'}) RETURN follower.name AS follower;
+Who directed the movie 'Toy Story'?,MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;
