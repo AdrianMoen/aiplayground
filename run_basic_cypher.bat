@@ -1,6 +1,6 @@
 @echo off
-echo Starting Phi-3 Cypher Converter REPL
-echo ==================================
+echo Starting Basic Phi-3 Cypher Converter (Command Line)
+echo =============================================
 echo.
 
 cd %~dp0
@@ -13,8 +13,9 @@ if not exist model_output\phi3-mini-cypher (
     exit /b 1
 )
 
-echo Starting command-line REPL interface with fine-tuned Cypher model...
-python cypher_repl.py --adapter_path model_output\phi3-mini-cypher
+echo Using adapter model...
+echo Starting Basic Cypher REPL interface...
+python basic_cypher_repl.py --adapter_path model_output\phi3-mini-cypher
 
 echo.
 pause
