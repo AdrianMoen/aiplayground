@@ -46,17 +46,28 @@ def parse_args():
     parser.add_argument("--lora_r", type=int, default=8, help="LoRA attention dimension")
     parser.add_argument("--lora_alpha", type=int, default=16, help="LoRA alpha parameter")
     parser.add_argument("--lora_dropout", type=float, default=0.05, help="LoRA dropout")
-    
-    # Additional arguments
+      # Additional arguments
     parser.add_argument("--use_wandb", action="store_true", help="Whether to use wandb for logging")
     parser.add_argument("--wandb_project", type=str, default="phi3-mini-finetuning", 
                         help="wandb project name")
+    parser.add_argument("--save_merged_model", action="store_true",
+                        help="Whether to save the merged model after training")
+    parser.add_argument("--merged_model_dir", type=str, default=None,
+                        help="Directory to save the merged model")
     
     return parser.parse_args()
 
 def prepare_dataset(dataset_name, tokenizer, max_length):
     """Prepare the dataset for training."""
-    dataset = load_dataset(dataset_name)
+    print(f"Loading dataset: {dataset_name}")
+    
+    # Check if dataset_name is a local file path
+    if os.path.isfile(dataset_name) and dataset_name.endswith('.json'):
+        # Load local JSON file
+        dataset = load_dataset('json', data_files={'train': dataset_name})
+    else:
+        # Use Hugging Face datasets
+        dataset = load_dataset(dataset_name)
     
     # You may need to adjust this formatting based on your specific dataset structure
     def format_instruction(example):
@@ -64,16 +75,27 @@ def prepare_dataset(dataset_name, tokenizer, max_length):
 {example['instruction']}
 
 ### Input:
-{example['input']}
+{example.get('input', '')}
 
 ### Response:
 {example['output']}"""
     
     def tokenize_function(examples):
-        formatted_texts = [format_instruction({"instruction": inst, "input": inp, "output": out}) 
-                           for inst, inp, out in zip(examples["instruction"], 
-                                                    examples["input"] if "input" in examples else [""] * len(examples["instruction"]), 
-                                                    examples["output"])]
+        formatted_texts = []
+        for i in range(len(examples["instruction"])):
+            instruction = examples["instruction"][i]
+            output = examples["output"][i]
+            
+            # Handle input field (may not exist in all examples)
+            input_text = examples["input"][i] if "input" in examples and examples["input"][i] else ""
+            
+            formatted_text = format_instruction({
+                "instruction": instruction,
+                "input": input_text,
+                "output": output
+            })
+            formatted_texts.append(formatted_text)
+            
         return tokenizer(formatted_texts, padding="max_length", truncation=True, max_length=max_length)
     
     tokenized_dataset = dataset.map(tokenize_function, batched=True, remove_columns=dataset["train"].column_names)
@@ -154,9 +176,7 @@ def train(args):
     
     # Print trainable parameters
     model.print_trainable_parameters()
-    
-    # Prepare dataset
-    print(f"Loading dataset: {args.dataset}")
+      # Prepare dataset
     train_dataset = prepare_dataset(args.dataset, tokenizer, args.max_seq_length)["train"]
     
     # Create training arguments
@@ -173,17 +193,18 @@ def train(args):
         save_strategy="epoch",
         report_to="wandb" if args.use_wandb else "none",
         run_name=f"phi3-mini-qlora-{args.lora_r}" if args.use_wandb else None,
+    )    # Initialize Trainer directly (without SFTTrainer since it has version compatibility issues)
+    data_collator = DataCollatorForLanguageModeling(
+        tokenizer=tokenizer, 
+        mlm=False
     )
     
-    # Initialize SFTTrainer
-    trainer = SFTTrainer(
+    trainer = Trainer(
         model=model,
-        train_dataset=train_dataset,
         args=training_args,
+        train_dataset=train_dataset,
+        data_collator=data_collator,
         tokenizer=tokenizer,
-        peft_config=peft_config,
-        dataset_text_field="text",  # Adjust based on your dataset
-        max_seq_length=args.max_seq_length,
     )
     
     # Train model
@@ -202,3 +223,27 @@ if __name__ == "__main__":
     args = parse_args()
     train(args)
     print("Training completed!")
+    
+    # Save merged model if requested
+    if args.save_merged_model and args.merged_model_dir:
+        print(f"Saving merged model to {args.merged_model_dir}...")
+        from peft import AutoPeftModelForCausalLM
+        
+        # Load the trained PEFT model
+        peft_model = AutoPeftModelForCausalLM.from_pretrained(
+            args.output_dir,
+            device_map="auto",
+            trust_remote_code=True
+        )
+        
+        # Merge the base model with the adapter
+        merged_model = peft_model.merge_and_unload()
+        
+        # Save the merged model
+        merged_model.save_pretrained(args.merged_model_dir)
+        
+        # Save the tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
+        tokenizer.save_pretrained(args.merged_model_dir)
+        
+        print(f"Merged model saved to {args.merged_model_dir}")
