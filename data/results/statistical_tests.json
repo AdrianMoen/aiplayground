@@ -1,0 +1,16 @@
+{
+  "generation_time": {
+    "t_stat": -0.7963919333928446,
+    "p_value": 0.4290520597977844
+  },
+  "throughput": {
+    "t_stat": 0.6601023372086089,
+    "p_value": 0.5118011816745736
+  },
+  "syntax_accuracy": {
+    "test_type": "fisher_exact",
+    "odds_ratio": NaN,
+    "p_value": 1.0,
+    "note": "Used Fisher's exact test due to zero cell counts"
+  }
+}

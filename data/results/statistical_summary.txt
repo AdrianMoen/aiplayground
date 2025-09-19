@@ -1,0 +1,19 @@
+Statistical Significance Tests
+========================================
+
+Generation Time Comparison:
+  T-statistic: -0.7964
+  P-value: 0.4291
+  Significant: No
+
+Throughput Comparison:
+  T-statistic: 0.6601
+  P-value: 0.5118
+  Significant: No
+
+Syntax Accuracy Comparison:
+  Test: Fisher's Exact Test
+  Odds Ratio: nan
+  P-value: 1.0000
+  Significant: No
+  Note: Used Fisher's exact test due to zero cell counts

@@ -1,0 +1,122 @@
+[
+  {
+    "input": "In how many films has Ryan Gosling appeared?",
+    "output": "MATCH (:Person {name: 'Ryan Gosling'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "input": "Which movies have at least eight actors in them?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "input": "Who is the director of 'Avatar'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Avatar'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "Which films feature ten or more different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "input": "Which actors have worked with John Boyega?",
+    "output": "MATCH (p1:Person {name: 'John Boyega'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "input": "Who directed 'Inside Out'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Inside Out'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "Which actors has Leonardo DiCaprio acted alongside?",
+    "output": "MATCH (p1:Person {name: 'Leonardo DiCaprio'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "input": "Who has acted with Samuel L. Jackson?",
+    "output": "MATCH (p1:Person {name: 'Samuel L. Jackson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "input": "Which people follow Meryl Streep?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Meryl Streep'}) RETURN follower.name AS follower;"
+  },
+  {
+    "input": "Who follows Tessa Thompson?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;"
+  },
+  {
+    "input": "Which movies have at least four different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "input": "Which actors starred in 'Whiplash'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Whiplash'}) RETURN p.name AS actor;"
+  },
+  {
+    "input": "Who are the people that follow Viola Davis?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Viola Davis'}) RETURN follower.name AS follower;"
+  },
+  {
+    "input": "Name the films that have eight or more actors.",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 8 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "input": "Who directed 'Django Unchained'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "Show people who acted in and directed the same film.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "input": "Which movies were released in 1980?",
+    "output": "MATCH (m:Movie) WHERE m.released = 1980 RETURN m.title AS title;"
+  },
+  {
+    "input": "Who was the director of 'Django Unchained'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Django Unchained'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "How many films has Emma Stone appeared in?",
+    "output": "MATCH (:Person {name: 'Emma Stone'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "input": "Who is the director of 'Toy Story'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "Which actors have acted together with Cate Blanchett?",
+    "output": "MATCH (p1:Person {name: 'Cate Blanchett'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "input": "Find people who acted in and directed the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "input": "Who directed 'Whiplash'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Whiplash'}) RETURN d.name AS director;"
+  },
+  {
+    "input": "List the movies released in 2016.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2016 RETURN m.title AS title;"
+  },
+  {
+    "input": "Who are the people following Florence Pugh?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Florence Pugh'}) RETURN follower.name AS follower;"
+  },
+  {
+    "input": "Show individuals who directed and acted in the same film.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "input": "Which actors appeared in 'Star Wars: A New Hope'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN p.name AS actor;"
+  },
+  {
+    "input": "Find movies with the word 'love' in the title.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "input": "Who acted in 'WALL·E'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'WALL·E'}) RETURN p.name AS actor;"
+  },
+  {
+    "input": "Which actors starred in 'Gladiator'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Gladiator'}) RETURN p.name AS actor;"
+  }
+]

@@ -61,14 +61,15 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
     
     # Load PEFT adapter
-    if os.path.exists(args.adapter_path):
-        print(f"Loading adapter from {args.adapter_path}")
-        model = PeftModel.from_pretrained(model, args.adapter_path)
+    adapter_path = os.path.abspath(args.adapter_path)
+    if os.path.exists(adapter_path):
+        print(f"Loading adapter from {adapter_path}")
+        model = PeftModel.from_pretrained(model, adapter_path)
         # Merge adapter weights for faster inference
         print("Merging adapter weights with base model")
         model = model.merge_and_unload()
     else:
-        print(f"Warning: Adapter path {args.adapter_path} not found. Using base model only.")
+        print(f"Warning: Adapter path {adapter_path} not found. Using base model only.")
     
     # Set model to evaluation mode
     model.eval()

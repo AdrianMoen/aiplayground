@@ -1,0 +1,452 @@
+[
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1977.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1977 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'war'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Keanu Reeves?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Keanu Reeves'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Matt Damon?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Matt Damon'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1989.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1989 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Toy Story'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Toy Story'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'war'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'war' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Brie Larson.",
+    "output": "MATCH (p1:Person {name: 'Brie Larson'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Coco'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Coco'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 10 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 10 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 2002.",
+    "output": "MATCH (p:Person) WHERE p.born = 2002 RETURN p.name AS person;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Anne Hathaway?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Anne Hathaway'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 1971.",
+    "output": "MATCH (p:Person) WHERE p.born = 1971 RETURN p.name AS person;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Whiplash'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Whiplash'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1978.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1978 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'dark'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 3 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Robert Downey Jr.?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Robert Downey Jr.'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 1982.",
+    "output": "MATCH (p:Person) WHERE p.born = 1982 RETURN p.name AS person;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 7 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2018.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Will Smith.",
+    "output": "MATCH (p1:Person {name: 'Will Smith'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2016.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2016 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Brad Pitt?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Brad Pitt'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'love'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Inside Out'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Inside Out'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "How many movies has Cate Blanchett acted in?",
+    "output": "MATCH (:Person {name: 'Cate Blanchett'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 9 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 1990.",
+    "output": "MATCH (p:Person) WHERE p.born = 1990 RETURN p.name AS person;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Oscar Isaac.",
+    "output": "MATCH (p1:Person {name: 'Oscar Isaac'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Cate Blanchett?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Cate Blanchett'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1975.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1975 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2018.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2018 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'The Dark Knight'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Dark Knight'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "How many movies has Timothee Chalamet acted in?",
+    "output": "MATCH (:Person {name: 'Timothee Chalamet'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Pulp Fiction'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Pulp Fiction'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Ryan Reynolds?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Ryan Reynolds'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 3 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 3 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 6 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Blade Runner 2049'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Blade Runner 2049'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2017.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2017 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'dark'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'dark' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Monsters, Inc.'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Monsters, Inc.'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Mark Ruffalo?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Mark Ruffalo'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "How many movies has Regina King acted in?",
+    "output": "MATCH (:Person {name: 'Regina King'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2002.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2002 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'La La Land'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'La La Land'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Harrison Ford?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Harrison Ford'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Leonardo DiCaprio.",
+    "output": "MATCH (p1:Person {name: 'Leonardo DiCaprio'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 9 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'The Grand Budapest Hotel'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Grand Budapest Hotel'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Spirited Away'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 4 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 4 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'night'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'night' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "How many movies has Denzel Washington acted in?",
+    "output": "MATCH (:Person {name: 'Denzel Washington'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1998.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1998 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Star Wars: A New Hope'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Star Wars: A New Hope'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 6 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 6 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Spirited Away'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Spirited Away'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Morgan Freeman.",
+    "output": "MATCH (p1:Person {name: 'Morgan Freeman'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Titanic'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Titanic'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 7 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 7 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "How many movies has Harrison Ford acted in?",
+    "output": "MATCH (:Person {name: 'Harrison Ford'})-[:ACTED_IN]->(m:Movie) RETURN count(m) AS movieCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 1992.",
+    "output": "MATCH (m:Movie) WHERE m.released = 1992 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Toy Story'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Toy Story'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Meryl Streep?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Meryl Streep'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show me movies whose title contains the word 'love'.",
+    "output": "MATCH (m:Movie) WHERE toLower(m.title) CONTAINS 'love' RETURN m.title AS title, m.released AS year;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Forrest Gump'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Forrest Gump'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 1984.",
+    "output": "MATCH (p:Person) WHERE p.born = 1984 RETURN p.name AS person;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Gravity'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Gravity'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which movies feature at least 9 different actors?",
+    "output": "MATCH (m:Movie)<-[:ACTED_IN]-(p:Person) WITH m, count(DISTINCT p) AS actorCount WHERE actorCount >= 9 RETURN m.title AS title, actorCount;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'The Wolf of Wall Street'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'The Wolf of Wall Street'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'Mad Max: Fury Road'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'Mad Max: Fury Road'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Show people who both directed and acted in the same movie.",
+    "output": "MATCH (p:Person)-[:DIRECTED]->(m:Movie)<-[:ACTED_IN]-(p) RETURN DISTINCT p.name AS person, m.title AS movie;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Saving Private Ryan'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Saving Private Ryan'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Which actors acted in 'Up'?",
+    "output": "MATCH (p:Person)-[:ACTED_IN]->(m:Movie {title: 'Up'}) RETURN p.name AS actor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who follows Tessa Thompson?",
+    "output": "MATCH (follower:Person)-[:FOLLOWS]->(p:Person {name: 'Tessa Thompson'}) RETURN follower.name AS follower;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List actors who have acted with Paul Rudd.",
+    "output": "MATCH (p1:Person {name: 'Paul Rudd'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(co:Person) RETURN DISTINCT co.name AS coActor;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "List all movies released in 2016.",
+    "output": "MATCH (m:Movie) WHERE m.released = 2016 RETURN m.title AS title;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Who directed the movie 'The Matrix'?",
+    "output": "MATCH (d:Person)-[:DIRECTED]->(m:Movie {title: 'The Matrix'}) RETURN d.name AS director;"
+  },
+  {
+    "instruction": "Convert the following natural language query about movies to a Cypher query for Neo4j graph database.",
+    "input": "Find all people born in 1990.",
+    "output": "MATCH (p:Person) WHERE p.born = 1990 RETURN p.name AS person;"
+  }
+]
